@@ -57,11 +57,13 @@ class OpenMapQuest(Geocoder):
             
             latitude = resource['lat'] or None
             longitude = resource['lon'] or None
+            datatype = resource['type'] or None
+            classtype = resource['class'] or None
             if latitude and longitude:
                 latitude = float(latitude)
                 longitude = float(longitude)
             
-            return (location, (latitude, longitude))
+            return (location, (latitude, longitude), datatype, classtype)
         
         if exactly_one:
             return parse_resource(resources[0])
